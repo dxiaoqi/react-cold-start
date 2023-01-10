@@ -2,11 +2,12 @@
   "name": "web-tamplate",
   "version": "1.0.0",
   "description": "",
+  "homepage": ".",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx webpack serve --config ./webpack/webpack.dev.js",
-    "build": "webpack-cli --config ./webpack/webpack.prod.js"
+    "start": "cross-env NODE_ENV=development npx webpack serve --config ./webpack/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack-cli --config ./webpack/webpack.prod.js"
   },
   "keywords": [],
   "author": "",
@@ -33,6 +34,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^5.47.1",
     "@typescript-eslint/parser": "^5.47.1",
+    "cross-env": "^7.0.3",
     "dotenv-webpack": "^8.0.1",
     "eslint": "^8.30.0",
     "eslint-config-prettier": "^8.5.0",

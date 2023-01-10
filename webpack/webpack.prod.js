@@ -2,13 +2,6 @@ const { merge } = require('webpack-merge');
 const common = require('./webpack.config.js');
 const path = require('path');
 module.exports = merge(common, {
-  output: {
-    path: path.join(__dirname, '../dist'),
-    filename: 'js/index.js',
-    // 自动清空上次打包，以前需要clean插件
-    clean: true,
-    publicPath: './'
-  },
   optimization: {
     minimize: true, //开启压缩
     moduleIds: 'deterministic', //单独模块id，模块内容变化再更新
@@ -17,11 +10,11 @@ module.exports = merge(common, {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name:'vendors',
+          name: 'vendors',
           chunks: 'all'
         }
       }
     }
   },
   mode: 'production'
-})
+});
