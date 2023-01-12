@@ -1,5 +1,6 @@
 node_modules/
 .vercel
 dist/*
-yarn.lock
 .eslintcache
+package-lock.json
+yarn.lock
