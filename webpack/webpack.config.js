@@ -4,6 +4,7 @@ const ESLintPlugin = require('eslint-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const resolve = (dir) => path.resolve(__dirname, dir);
 module.exports = {
   entry: './src/index.tsx',
   output: {
@@ -73,6 +74,10 @@ module.exports = {
     new Dotenv()
   ],
   resolve: {
-    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', 'json']
+    extensions: ['.js', '.jsx', '.ts', '.tsx', '.css', '.scss', 'json'],
+    // 设置别名
+    alias: {
+      '@': resolve('../src')
+    }
   }
 };
